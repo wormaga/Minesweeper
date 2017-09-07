@@ -1,0 +1,74 @@
+MineSweeper Map
+
+
+Minesweeper
+	GameField gameFieldobject
+    Cell[][] gameField
+    int countFlagedCells, countOpenCells
+    boolean gameEnd
+    MouseEvent mouseEvent
+    Window gui
+    Minesweeper mainObj
+	-----------------
+	void stepInGame(int positionX, int positionY) - acntion after each user step
+	void checkGameEnd(Cell cell) - check if you finished game (win/lose)
+	String detectMouseButton(MouseEvent mouseEvent) - tells it was right or left mouse button
+	void openArea(int positionX, int positionY) - open cells around empty cell
+	void showAllBombs() - open cells with bombs at the end of the game
+	void plusCountFlagedCells() - increment variable 'countFlagedCells'
+	void minusCountFlagedCells() - substract variable 'countFlagedCells'
+	void plusCountOpenCells() - increment variable countOpenCells
+	exitTheProgram () - close program
+	startNewGame() - start new game
+
+
+Window
+	JFrame frame
+    Minesweeper mainObj
+	------------------
+	void initFrame () - Create Frame and set it up
+	void initCells(Cell[][] gameField) - Add celss to the Frame
+	popupWindow(String whoYouAre) - display JOptionPane with question "do you want to play again?""
+
+
+Cell
+	boolean isbomb
+	boolean isOpen
+	boolean flag
+	boolean bang
+	int bombAround
+	int positionX
+	int positionY
+	Minesweeper mainObj
+	--------------------------
+	void plusBombAround() - increment variable 'bombAround'
+	paintBomb(Graphics g, Color color) - draw bomb
+	paintString(Graphics g, String str, Color color) - draw flag/number
+	void paint(Graphics g) - draw each cell according its proporties
+	void inverseFlag() - change 'flag'
+
+		
+GameField
+	Cell[][]  gameField
+    Minesweeper mainObj
+	--------------------------
+	void createField() - create field with cells inside
+	void fillFieldWithBombs() - add bombs to the empty field (before game)
+	void countBoumbAround() - define how many bombs are around each cell
+	void resetGameField() - reset cells to default setting 
+
+
+Constants
+	int CELL_SIZE
+    int CELL_MARGIN
+    int CELLS_IN_ROW 
+    int CELLS_IN_COLUMN 
+    int FRAME_WIDTH;
+    int FRAME_HIGHT
+    String FRAME_TITLE
+    int COUNT_CELLS
+    int COUNT_BOMBS
+    HashMap<String, Color> COLORS
+	--------------------------
+	no methods	
+
